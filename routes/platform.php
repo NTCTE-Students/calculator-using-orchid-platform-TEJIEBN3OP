@@ -19,6 +19,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Orchid\Screens\CalculatorPhysScreen;
+use App\Orchid\Screens\CalculatorScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +92,12 @@ Route::screen('example', ExampleScreen::class)
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push('Example Screen'));
+
+        Route::screen('calculator', CalculatorScreen::class)
+        ->name('platform.calculator.index');
+
+        Route::screen('calculator', CalculatorPhysScreen::class)
+    ->name('platform.calculator.index');
 
 Route::screen('/examples/form/fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('/examples/form/advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
